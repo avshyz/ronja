@@ -10,12 +10,7 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      debugger
-      if (timeLeft > 0) {
-        setTimeLeft(timeLeft - 1)
-      } else {
-        clearInterval(interval)
-      }
+      setTimeLeft((t) => t - 1)
     }, 1000)
 
     return () => clearInterval(interval)
