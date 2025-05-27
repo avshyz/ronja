@@ -12,6 +12,7 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { Center, OrbitControls, Text3D } from '@react-three/drei'
 import * as THREE from 'three'
 import { differenceInSeconds } from 'date-fns'
+import { Group, Mesh, Vector3 } from 'three'
 
 const DEADLINE = new Date('2025-05-31T21:59:00.000+02:00')
 
@@ -33,7 +34,7 @@ function AnimatedTorus({
   rotation: [number, number, number]
   scale: number
 }): JSX.Element {
-  const meshRef = useRef<THREE.Mesh>(null)
+  const meshRef = useRef<Mesh>(null)
 
   useFrame((state, delta) => {
     if (meshRef.current) {
@@ -53,7 +54,7 @@ function AnimatedTorus({
 
 // Simplified Torus Field using normal materials
 function TorusField(): JSX.Element {
-  const groupRef = useRef<THREE.Group>(null)
+  const groupRef = useRef<Group>(null)
 
   // Much smaller count to reduce GPU load
   const COUNT = 200
@@ -64,7 +65,7 @@ function TorusField(): JSX.Element {
     const WORLD_SIZE = 20 // Much smaller world
 
     for (let i = 0; i < COUNT; i++) {
-      const position = new THREE.Vector3()
+      const position = new Vector3()
         .random()
         .subScalar(0.5)
         .multiplyScalar(WORLD_SIZE)
