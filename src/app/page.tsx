@@ -1,15 +1,15 @@
 'use client'
 import React, {
-  useRef,
-  useMemo,
+  JSX,
   Suspense,
   useCallback,
-  useState,
-  JSX,
   useEffect,
+  useMemo,
+  useRef,
+  useState,
 } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { OrbitControls, Text3D, Center } from '@react-three/drei'
+import { Canvas, useFrame } from '@react-three/fiber'
+import { Center, OrbitControls, Text3D } from '@react-three/drei'
 import * as THREE from 'three'
 import { differenceInSeconds } from 'date-fns'
 
