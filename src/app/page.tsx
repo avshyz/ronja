@@ -139,29 +139,32 @@ function TextContent(): JSX.Element {
   const seconds = Math.floor(timeLeft % 60)
 
   return (
-    <Center position={[0, 0.5, 0]}>
-      <Text3D
-        font="https://threejs.org/examples/fonts/helvetiker_regular.typeface.json"
-        size={0.3}
-        height={0.05}
-        curveSegments={2}
-        bevelEnabled={false} // Disable bevel to reduce complexity
-      >
-        Ich liebe Ronja!
-        <meshNormalMaterial />
-      </Text3D>
-
-      <Text3D
-        font="https://threejs.org/examples/fonts/helvetiker_regular.typeface.json"
-        size={0.3}
-        height={0.05}
-        curveSegments={2}
-        bevelEnabled={false} // Disable bevel to reduce complexity
-      >
-        Ich liebe Ronja!
-        <meshNormalMaterial />
-      </Text3D>
-    </Center>
+    <>
+      <Center position={[0, 0.5, 0]}>
+        <Text3D
+          font="https://threejs.org/examples/fonts/helvetiker_regular.typeface.json"
+          size={0.3}
+          height={0.05}
+          curveSegments={2}
+          bevelEnabled={false}
+        >
+          I love Ronja
+          <meshNormalMaterial />
+        </Text3D>
+      </Center>
+      <Center position={[0, -0.5, 0]}>
+        <Text3D
+          font="https://threejs.org/examples/fonts/helvetiker_regular.typeface.json"
+          size={0.2}
+          height={0.05}
+          curveSegments={2}
+          bevelEnabled={false}
+        >
+          {`${days}d ${hours}h ${minutes}m ${seconds}s`}
+          <meshNormalMaterial />
+        </Text3D>
+      </Center>
+    </>
   )
 }
 
