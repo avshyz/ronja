@@ -261,19 +261,11 @@ function LoadingFallback(): JSX.Element {
 // Main App component with enhanced error handling
 export default function App(): JSX.Element {
   const [hasError, setHasError] = useState(false)
-  const [retryCount, setRetryCount] = useState(0)
 
   const handleCanvasError = useCallback(() => {
     console.error('Canvas error occurred')
     setHasError(true)
   }, [])
-
-  const handleRetry = useCallback(() => {
-    if (retryCount < 3) {
-      setHasError(false)
-      setRetryCount((prev) => prev + 1)
-    }
-  }, [retryCount])
 
   if (hasError) {
     return <ErrorFallback />
