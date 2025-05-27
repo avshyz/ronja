@@ -45,7 +45,7 @@ function AnimatedTorus({
 
   return (
     <mesh ref={meshRef} position={position} rotation={rotation} scale={scale}>
-      <torusGeometry />
+      <torusGeometry args={[0.5, 0.5, 32, 32]} />
       <meshNormalMaterial />
     </mesh>
   )
