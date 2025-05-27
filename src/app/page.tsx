@@ -10,7 +10,6 @@ import React, {
 } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Center, OrbitControls, Text3D } from '@react-three/drei'
-import * as THREE from 'three'
 import { differenceInSeconds } from 'date-fns'
 import { Group, Mesh, Vector3 } from 'three'
 
