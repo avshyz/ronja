@@ -56,12 +56,12 @@ function TorusField(): JSX.Element {
   const groupRef = useRef<Group>(null)
 
   // Much smaller count to reduce GPU load
-  const COUNT = 200
+  const COUNT = 2000
 
   // Generate torus positions and properties
   const torusData = useMemo((): TorusData[] => {
     const data: TorusData[] = []
-    const WORLD_SIZE = 20 // Much smaller world
+    const WORLD_SIZE = 50 // Much smaller world
 
     for (let i = 0; i < COUNT; i++) {
       const position = new Vector3()
