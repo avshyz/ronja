@@ -13,7 +13,8 @@ import { Center, OrbitControls, Text3D } from '@react-three/drei'
 import { differenceInSeconds } from 'date-fns'
 import { Group, Mesh, Vector3 } from 'three'
 
-const DEADLINE = new Date('2025-05-31T21:59:00.000+02:00')
+const RIDE_DEADLINE = new Date('2025-05-31T21:59:00.000+02:00')
+const DATE_DEADLINE = new Date('2025-06-10T19:00:00.000+03:00')
 
 // Type definitions
 interface TorusData {
@@ -122,13 +123,17 @@ function AnimatedCamera(): null {
 
 // Simplified text component with normal material
 function TextContent(): JSX.Element {
+  const isAfterRide = differenceInSeconds(RIDE_DEADLINE, Date.now()) < 0
+
+  const deadline = isAfterRide ? DATE_DEADLINE : RIDE_DEADLINE
+
   const [timeLeft, setTimeLeft] = useState(
-    differenceInSeconds(DEADLINE, Date.now())
+    differenceInSeconds(deadline, Date.now())
   )
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimeLeft(differenceInSeconds(DEADLINE, Date.now()))
+      setTimeLeft(differenceInSeconds(deadline, Date.now()))
     }, 1000)
     return () => clearInterval(interval)
   }, [])
@@ -142,19 +147,19 @@ function TextContent(): JSX.Element {
     <>
       <Center position={[0, 0.5, 0]}>
         <Text3D
-          font="https://threejs.org/examples/fonts/helvetiker_regular.typeface.json"
+          font="https://threejs.org/examples/fonts/optimer_bold.typeface.json"
           size={0.3}
           height={0.05}
           curveSegments={2}
           bevelEnabled={false}
         >
-          I love Ronja
+          {isAfterRide ? 'Ich kann dich kaum abwarten <3' : 'I love Ronja'}
           <meshNormalMaterial />
         </Text3D>
       </Center>
       <Center position={[0, -0.5, 0]}>
         <Text3D
-          font="https://threejs.org/examples/fonts/helvetiker_regular.typeface.json"
+          font="https://threejs.org/examples/fonts/optimer_bold.typeface.json"
           size={0.2}
           height={0.05}
           curveSegments={2}
