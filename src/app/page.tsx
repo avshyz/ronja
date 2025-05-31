@@ -13,7 +13,7 @@ import { Center, OrbitControls, Text3D } from '@react-three/drei'
 import { differenceInSeconds } from 'date-fns'
 import { Group, Mesh, Vector3 } from 'three'
 
-const RIDE_DEADLINE = new Date('2025-05-31T21:59:00.000+02:00')
+const RIDE_DEADLINE = new Date('2025-05-31T23:10:00.000+02:00')
 const DATE_DEADLINE = new Date('2025-06-10T19:00:00.000+03:00')
 
 // Type definitions
