@@ -13,8 +13,8 @@ import { Center, OrbitControls, Text3D } from '@react-three/drei'
 import { differenceInSeconds } from 'date-fns'
 import { Group, Mesh, Vector3 } from 'three'
 
-const RIDE_DEADLINE = new Date('2025-05-31T23:10:00.000+02:00')
-const DATE_DEADLINE = new Date('2025-06-10T19:00:00.000+03:00')
+const RIDE_DEADLINE = new Date('2025-09-18T17:30:00.000+03:00')
+const DATE_DEADLINE = new Date('2025-10-19T22:05:00.000+03:00')
 
 // Type definitions
 interface TorusData {
@@ -153,7 +153,7 @@ function TextContent(): JSX.Element {
           curveSegments={2}
           bevelEnabled={false}
         >
-          {isAfterRide ? 'Ich kann dich kaum abwarten <3' : 'I love Ronja'}
+          {isAfterRide ? 'Heaven, I am in heaven' : 'Ich komm zu dir.'}
           <meshNormalMaterial />
         </Text3D>
       </Center>
